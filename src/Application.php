@@ -41,30 +41,30 @@ class Application extends BaseApplication
      *
      * @return void
      */
-//     public function bootstrap(): void
-//     {
-//         // Call parent to load bootstrap from files.
-//         parent::bootstrap();
+  public function bootstrap(): void
+     {
+         // Call parent to load bootstrap from files.
+         parent::bootstrap();
 
-//         if (PHP_SAPI === 'cli') {
-//             $this->bootstrapCli();
-//         } else {
-//             FactoryLocator::add(
-//                 'Table',
-//                 (new TableLocator())->allowFallbackClass(false)
-//             );
-//         }
+         if (PHP_SAPI === 'cli') {
+             $this->bootstrapCli();
+        } else {
+             FactoryLocator::add(
+               'Table',
+               (new TableLocator())->allowFallbackClass(false)
+           );
+        }
 
         /*
          * Only try to load DebugKit in development mode
          * Debug Kit should not be installed on a production system
          */
-//         if (Configure::read('debug')) {
-//             $this->addPlugin('DebugKit');
-//         }
+        if (Configure::read('debug')) {
+             $this->addPlugin('DebugKit');
+         }
 
 //         // Load more plugins here
-//     }
+  }
 
     /**
      * Setup the middleware queue your application will use.
