@@ -1,0 +1,31 @@
+proyectoMultas
+
+Tabla Equipos
+-nombre
+
+Tabla Prestamos
+-fechaFin
+-fechaEntrega
+-usuario
+-estado
+-equipo_id
+
+Tabla multas
+-nombreEquipo
+-usuario
+-multa
+
+#comando para crear el proyecto
+composer create-project --prefer-dist cakephp/app:4.* sistemamultas
+
+cake bake migration CreateEquipos nombre:string created modified
+cake migrations migrate
+cake bake all equipos
+
+cake bake migration CreatePrestamos fechaInicio:date fechaFin:date fechaEntrega:date usuario:string estado:string equipo_id:int created modified
+cake migrations migrate
+cake bake all prestamos
+
+cake bake migration CreateMultas nombreEquipo:string usuario:string multa:decimal prestamo_id:int created modified
+cake migrations migrate
+cake bake all multas
